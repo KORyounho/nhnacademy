@@ -1,0 +1,127 @@
+= Quiz
+
+Question 1:
+
+Briefly explain what is meant by the syntax and the semantics of a programming language. Give an example to illustrate the difference between a syntax error and a semantics error.
+
+* answer
+
+Syntax : 컴퓨터가 읽을 수 있는 언어로 정의된 프로그래밍 언어가 사용해야하는 단어나 순서의 규약 또는 규칙
+
+Semantics : 컴퓨터가 프로그래머가 생성한 소스코드를 실행시키는 프로그램이 의미하는 바가 동일한지, 목적에 부합한지
+
+---
+
+Question 2:
+
+What does the computer do when it executes a variable declaration statement. Give an example.
+
+Question 3:
+
+What is a type, as this term relates to programming?
+
+* answer :
+
+---
+
+
+Question 4:
+
+One of the primitive types in Java is boolean. What is the boolean type? Where are boolean values used? What are its possible values?
+
+* answer :
+
+---
+
+
+Question 5:
+
+Give the meaning of each of the following Java operators:
+
+a)    ++
+
+b)    &&
+
+c)    !=
+
+* answer :
+
+---
+
+
+Question 6:
+
+Explain what is meant by an assignment statement, and give an example. What are assignment statements used for?
+
+* answer :
+
+---
+
+
+Question 7:
+
+What is meant by precedence of operators?
+
+* answer :
+
+---
+
+
+Question 8:
+
+What is a literal?
+
+* answer :
+
+---
+
+
+Question 9:
+
+In Java, classes have two fundamentally different purposes. What are they?
+
+* answer :
+
+---
+
+
+Question 10:
+
+What is the difference between the statement "x = TextIO.getDouble();" and the statement "x = TextIO.getlnDouble();"
+
+* answer :
+
+---
+
+
+Question 11:
+
+Explain why the value of the expression 2 + 3 + "test" is the string "5test" while the value of the expression "test" + 2 + 3 is the string "test23". What is the value of "test" + 2 * 3 ?
+
+* answer :
+
+---
+
+
+Question 12:
+
+Integrated Development Environments such as Eclipse often use syntax coloring, which assigns various colors to the characters in a program to reflect the syntax of the language. A student notices that Eclipse colors the word String differently from int, double, and boolean. The student asks why String should be a different color, since all these words are names of types. What's the answer to the student's question?
+
+* answer :
+
+---
+
+
+Question 13:
+
+What is the purpose of an import directive, such as import textio.TextIO or import java.util.Scanner?
+
+* answer :
+
+---
+
+
+Question 14:
+
+Write a complete program that asks the user to enter the number of "widgets" they want to buy and the cost per widget. The program should then output the total cost for all the widgets. Use System.out.printf to print the cost, with two digits after the decimal point. You do not need to include any comments in the program.
+
