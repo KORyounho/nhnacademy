@@ -1,3 +1,267 @@
 = Parameter
 
-* 서브루틴이 블랙박스라면,
+* 서브루틴이 블랙박스라면, parameter는 인터페이스의 일부분
+
+----
+/**
+ * This subroutine prints a 3N+1 sequence to standard output, using
+ * startingValue as the initial value of N.  It also prints the number
+ * of terms in the sequence. The value of the parameter, startingValue,
+ * must  be a positive integer.
+ */
+static void print3NSequence(int startingValue) {
+
+   int N;      // 순서의 항목 중 하나.
+   int count;  // 항목의 갯수.
+
+   N = startingValue;  // 첫 번째 항목은
+                       // 매개변수로써 서브루틴을
+                       // 통과하는 어떠한 값임.
+
+   count = 1; // 지금까지 하나의 항목, 즉 시작 값만 있음.
+
+   System.out.println("3N+1 순서로 " + N + " 값으로 시작");
+   System.out.println();
+   System.out.println(N);  // 순서의 초기 항목을 출력
+
+   while (N > 1) {
+       if (N % 2 == 1)     // N이 홀수인가?
+          N = 3 * N + 1;
+       else
+          N = N / 2;
+       count++;   // 이 항목의 수를 셈
+       System.out.println(N);  // 해당 항목을 출력
+   }
+
+   System.out.println();
+   System.out.println("이 순서에는 " + count + " 개의 항목이 있습니다.");
+
+}  // print3NSequence 종료
+
+----
+
+* 매개변수 목록인 int startingValue
+
+* 서브루틴 body에서 매개변수의 값을 제공하지 않고, 외부에 호출하는 부분에서 값을 초기 값을 얻음 - 반드시 필요
+
+---
+
+== Formal and Actual Parameters
+
+* 매개변수의 2가지 종류가 있음
+
+** formal parameter( 형식적 매개변수 )
+*** int startingValue 에서 startingValue
+*** 메서드 정의에서의 매개변수
+*** dummy parameter( 더미 매개변수 )라고도 불림
+** actual parameter( 실질적 매개변수 )
+*** print3NSequence(k) 에서 k
+*** 서브루틴이 호출될 때, 서브루틴으로 전달되는 매개변수
+*** argument( 인수 )라고도 보름
+
+* formal parameter 는 반드시 이름, 단순 식별자여야 함
+
+* 변수와 매우 유사하며, int, boolean, String, double[]과 같은 자료형을 가짐
+
+* actual parameter는 value이므로, 올바른 자료형의 값을 계산하는 표현식으로 지정될 수 있음
+
+* 형식적 매개변수에 할당 할 수 있는 자료형을 실질적 매개변수가 가지고 있어야 한다
+
+----
+doubleMath(double a){
+
+}
+
+int a = 10;
+
+double(a); -> 가능 함
+----
+----
+static void doTask(int N, double x, boolean test) {
+
+}
+
+doTask(17, Math.sqrt(z+1), z >= 10); -> 이 또한 가능함
+----
+
+== 오버로딩
+
+* 서브루틴의 시그니처
+** 이름,
+** 형식적 매개변수
+** 매개변수의 자료형
+
+WARNING: 매개변수의 이름은 시그니처에 포함되지 않음,
+
+WARNING: return type도 시그니처가 아니다.
+
+----
+doTask(int, double, boolean) 등이 서브루틴의 시그니처
+----
+
+* 자바에서는 시그니처가 다르다면, 동일한 이름을 가지더라도 허용함 -> 오버로딩
+
+** 우리는 print에서 오버로드된 메서드를 사용하고 있다.
+
+** System.out이라는 경로에, println의 이름을 가지는 여러가지 메서드를 정의 함
+----
+System.out.println(int)
+System.out.println(char)
+System.out.println(double)
+System.out.println(boolean)
+System.out.println()
+etc...
+----
+
+----
+int genln(){}
+double getln(){}
+----
+
+다음은 오류가 발생하게 되기 때문에, returntype에 따라서 이름을 다르게 지정해주면 semantcs적으로 올바르게 작동하게 된다.
+
+== Subroutine Example
+
+* 서브루틴은 더 큰 프로그램의 하위작업(subtask)이다.
+
+* 하위 작업으로 어떻게 나누는지를 결정하는 기술은 프로그래밍의 다른 측면
+
+** exercise01 : 양수들의 약수들을 계산하고 출력하는 subroutine 작성
+
+** link:example/Exercise01.java[exercise01] 소스 코드
+
+** exercise02 : printRow라는 이름의 private 서브루틴을 작성 // char 매개변수와 int 매개변수를 가지고, char를 int만큼 한줄 텍스트 출력
+
+** link:example/Exercise02.java[exercise02] 소스 코드
+
+** exercise03: String을 매개변수로, 각 문자에 대하여, 25개의 복사본을 포함하는 한줄을 출력
+
+== Array Parameters
+
+----
+static void printValuesInList(int[] list){
+    statements
+}
+
+public static void main(String args[]){
+    int [] numbers;
+    numbers = new int[3];
+    number[0] = 42;
+    number[1] = 17;
+    number[2] = 256;
+    printValueInList(numbers);
+}
+----
+== Command-line Arguments
+
+---
+
+----
+public static void main(String args[]){
+
+}
+----
+
+* 메인 함수는 다음과 같이 구성되어져 있는데, String 배열은 어디서 들어오는 걸까?
+
+* 실제로도, 호출할때 매개변수를 제공받는데, 그 매개변수는 프로그램 외부에서 나온다.
+
+* 그러면 어디에서 String 문자 배열이 오는 것일까?
+
+** 프로그램을 실행하는데 사용된 명령에서 나온 command-line argument이다.
+
+** 명령줄 인터페이스를 사용하여, 사용자의 명령을 입력하여 시스템에서 실행하도록 지시
+
+* 기본적으로 command-line arguments는 프로그램 이외의 추가적인 명령을 내리는 경우다.
+
+----
+java myProg one two three
+----
+
+해당 명령을 보면, 기본적으로 java myProg는 버리고, one, two, three 가 String  배열로 들어간다.
+
+* 명령줄에 아무것도 입력하지 않으면 배열의 길이가 0일 수도 있다.
+
+== Throwing Exceptions
+
+* 서브루틴이 무엇을 할지 명시하는 것 -> 위에서 얘기한 contract(계약)
+* 만약, 호출자가 매개변수를 잘못 입력했다면??
+
+** thorw Execption를 통해 반응
+
+* 기본적으로 자바의 타입에 올바른 데이터가 들어가면 오류가 발생하지 않지만, 그 외의 경우는 예외처리를 통해서 예외를 던진다.
+
+** ex) Double.parseDouble(String) // 만약 String에 double에 관련한 데이터가 아니라면, NumberFormatException을 던진다.
+
+* 대부분의 서브루틴으로 잘못된 매개변수의 값으로 IllegalArgumentsException을 던진다.
+
+* throw statement으로 잘못된 입력을 예외 처리 할 수 있다.
+
+* 예외는 객체이며, 예외를 던지기 위해선 예외 객체를 만들어야 한다.
+
+----
+throw new IllegalArgumentsException("잘못 입력");
+----
+
+* new를 통해서 예외 객체를 만들어서 던진다.
+
+print3NSequence를 예로 들자
+----
+static void print3NSequence(int startingValue){
+
+    if(startingValue <= 0)
+        throw new IllegalArgumentsException("시작 값은 반드시 양수여야 함");
+        .
+        .
+        .
+}
+----
+
+* throw 문으로 잘못 들어온(호출자가 semantics 이해를 주의하지 못함) 경우를 예외 객체를 만들어 throw 함
+
+* try ~ catch문법을 이용해서 던져진 예외에 대한 처리를 따로 한다.
+
+** try ~ catch를 사용하지 않으면 프로그램 자체는 멈춘다.
+
+
+==  Global and Local Variables
+
+* 서브루틴 내부에는 세가지의 다른 종류의 변수가 존재
+
+** 지역변수 : 서브루틴 안에서 선언되는 변수
+
+** 형식적 매개변수 이름 : 형식적 매개변수 이름
+
+** 정적 멤버 변수 : 서브루틴 밖에서 선언되는 정적 멤버 변수
+
+* 매개변수는 서브루틴의 값을 떨어뜨리는데(drop) 사용됨.
+
+* 서브루틴이 실행되면, 지역변수처럼 작동
+
+* 서브루틴 내부에서 이루어진 매개변수에 대한 변경은 프로그램에 나머지에 영향 x
+
+** -> primitive일 경우에는 그러지만, reference type의 경우는 조금 복잡하다.
+
+* 서브루틴 외부에서 정의된 변수를 사용할때는 말이 달라짐.
+
+* 정적 멤버변수는 서브루틴과 독립적이기때문에, 프로그램의 다른 부분에서도 접근 가능
+
+* 이런 변수는 서브루틴에 대해서 전역적(global)이라고 얘기함.
+
+* 전역변수는 정의된 전채 클래스에서 사용할 수 있고, primitive type이 아니면, 다른 클래스에서도 사용 가능
+
+* 전역변수에 대한 변경은 서브루틴의 외부로 확장되는 효과를 가짐
+
+* side-effect -> 서브루틴 내부에서 전역변수를 사용하는게 안좋은 일은 아니지만, 전역변수는 서브루틴 내부에서 인터페이스의 일부로 간주되어야 하는게 올바르다.
+
+* 서브루틴은 전역변수들을 통해 외부 세상과 소통
+
+* 가시성이 떨어지는 은밀한(sneaky) 백도어 소통으로, 블랙박스의 인터페이스는 직접적이고, 이해하기 쉬워야하는 규칙을 위반
+
+** 서브루틴의 전역변수 사용은 지양해야한다.
+
+* 다만 한가지 좋은 점을 뽑는다면, 클래스 전체를 블랙박스의 일종으로 생각하면, 서브루틴들이 서로 의사소통 하는 일이 약간은 은밀하게 되도록 내버려 두는것이 합리적
+
+
+
+
