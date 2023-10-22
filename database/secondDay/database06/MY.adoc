@@ -1,0 +1,98 @@
+= org
+
+ALTER 연산에서 행을 가리키는 Column
+----
+ex) ALTER TABLE Product MODIFY COLUMN ProductName nvarchar(40);
+----
+
+COLUMN은 Column으로 쓰여도 오류가 안났음.
+
+테이블의 이름을 바꾸는 방법
+
+. ALTER
++
+----
+ALTER TABLE Product RENAME Products;
+----
+
+. RENAME
+
++
+----
+RENAME TABLE Products TO Product;
+----
+
+
+---
+=== 용어 정리
+
+관계 대수식
+
+투플 관계 해석
+
+카디션
+
+프로덕트
+
+프로젝션
+
+셀렉션
+
+조인
+
+1. 내부 조인
+----
+테이블에 조인을 하나는 것을 지정하기 위해 JOIN 키워드를 사용하며 그리고 나서 다음의 예제와 같이 ON 키워드를 조인에 대한 구문을 지정하는데 사용한다.
+
+SELECT * FROM employee INNER JOIN department ON employee.DepartmentID = department.DepartmentID;
+
+
+SELECT 구문의 FROM 절에서 그것들을 분리하는 컴마를 사용해서 단순히 조인을 위한 여러 테이블을 나열하기만 한다.
+
+SELECT * FROM employee, department WHERE employee.DepartmentID = department.DepartmentID;
+----
+
+2. 동등 조인
+
+3. 자연 조인
+
+----
+SELECT * FROM employee NATURAL JOIN department;
+----
+
+4. 교차 조인
+----
+명시적 조인
+SELECT * FROM employee CROSS JOIN department;
+
+암시적 조인
+SELECT * FROM employee, department;
+
+----
+
+5. 외부 조인
+
+6. 왼쪽 외부 조인
+----
+SELECT * FROM employee LEFT OUTER JOIN department ON employee.DepartmentID = department.DepartmentID;
+----
+
+7. 오른쪽 외부 조인
+----
+SELECT * FROM employee RIGHT OUTER JOIN department ON employee.DepartmentID = department.DepartmentID
+----
+
+8. 완전 외부 조인
+----
+SELECT * FROM employee FULL OUTER JOIN department ON employee.DepartmentID = department.DepartmentID;
+----
+
+
+
+
+
+
+
+
+
+
