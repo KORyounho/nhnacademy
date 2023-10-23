@@ -1,0 +1,85 @@
+= Constructors and Object Initialization
+
+* 인스턴스를 생성할때, 인스턴스 안에 아무값도 넣지 않으면, 인스턴스는 defalut value로 variable을 initialization을 진행한다.
+
+** 숫자 primitive type -> 0으로 초기화(double, float는 부동소수점 0으로 초기화)
+
+** char -> unicode 0의 char로 -> char 0
+
+** boolean -> false
+
+** reference type -> null
+
+---
+==== Constructors
+
+* 인스턴스를 생성하는 경우, 클래스의 인스턴스 변수로 들어가야 할 값을 초기화해주는 단계
+
+new method를 사용해서 값을 초기화함
+
+----
+public PairOfDice(){
+    statements;
+}
+
+dice = new PairOfDice();
+----
+
+* 생성자를 정의하지 않았다면, 클래스에서 default constructor를 불러오는데, default constructor는 메모리를 가리키지만, 인스턴스 변수는 default value로 초기화 되서 저장함
+
+* Constructor의 특징
+
+. ** return 값이 없다 (void) **
+. ** constructor는 반드시 클래스가 정의되어진 이름과 같아야 함 **
+. ** 접근 제어자가 필수로 선언되어야 함. **
+
+-> public, private, protected
+
+* constructor를 생성하는 방법으로는 다양한 방법이 있다. 가장 효율적인 방법을 사용하면 된다.
+
+----
+public class PairOfDice {
+
+    public int die1;   // Number showing on the first die.
+    public int die2;   // Number showing on the second die.
+
+    public PairOfDice() {
+            // Constructor.  Rolls the dice, so that they initially
+            // show some random values.
+        roll();  // Call the roll() method to roll the dice.
+    }
+
+    public PairOfDice(int val1, int val2) {
+            // Constructor.  Creates a pair of dice that
+            // are initially showing the values val1 and val2.
+        die1 = val1;  // Assign specified values
+        die2 = val2;  //            to the instance variables.
+    }
+
+    public void roll() {
+            // Roll the dice by setting each of the dice to be
+            // a random number between 1 and 6.
+        die1 = (int)(Math.random()*6) + 1;
+        die2 = (int)(Math.random()*6) + 1;
+    }
+
+} // end class PairOfDice
+----
+
+* 단, 한번 만들어진 객체를 또 생성할 필요는 없다. -> 메모리 낭비
+
+* 메서드는 일
+
+
+
+
+
+
+
+
+
+
+
+
+
+

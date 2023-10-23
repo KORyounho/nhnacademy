@@ -154,10 +154,66 @@ public void setTitle( String newTitle ) {
 
 * array 안에서 new로 생성하지 않은 null인 상태일 , variable.length를 사용한다면 오류(NullPointExecption) 발생
 
+* 클래스의 생성자는 일반 메서드와는 조금 다르다. 어떤 오브젝트에 속하지도 않기때문에, 인터페이스 메서드도 아니고,
+객체가 생성되지 않은 상태에서도 생성 가능하고(이미 메모리에 올라와져 있다는 말인가?) static멤서 서브루틴도 아니다.
+
+---
+
+* 객체가 연산을 진행하면서 추후에 바뀔값이 아니라면 final로 선언하는게 좋다. -> 이름도 final이 좋음
+
+----
+public class Student {
+
+   private String name;                 // Student's name.
+   public double test1, test2, test3;   // Grades on three tests.
+
+   private int ID;  // Unique ID number for this student.
+
+   private static int nextUniqueID = 0;
+             // keep track of next available unique ID number
+
+   Student(String theName) {
+        // Constructor for Student objects; provides a name for the Student,
+        // and assigns the student a unique ID number.
+      name = theName;
+      nextUniqueID++;
+      ID = nextUniqueID;
+   }
+
+   public String getName() {
+        // Getter method for reading the value of the private
+        // instance variable, name.
+      return name;
+   }
+
+   public int getID() {
+        // Getter method for reading the value of ID.
+      return ID;
+   }
+
+   public double getAverage() {
+        // Compute average test grade.
+      return (test1 + test2 + test3) / 3;
+   }
+
+}  // end of class Student
+----
+
+* 해당 코드는 공유하는 nextUniqueID를 통해서 하나의 생성자가 추가 될 때마다 클래스변수의 값이 1씩 증가함
+
+* 정말 좋은 코드이긴 하나, 쓰레드 부분에 가면 레이스 컨디션이 발생하여 생성자가 호출될때마다 값이 1이 증가하는게 절대적이지 않음
 
 
+---
+==== Garbage Collection
 
+* Heap에 저장되어진 정보가 만약에 어떤것도 가리키지 않는다면 Garbage Collection이 수거해감. (메모리 낭비를 줄임)
 
+** dangling pointer error -> 객체에 대한 참조가 남아있음에도 객체를 실수로 삭제
+
+** memory leak -> 사용되지 않는 객체를 사용하는데도, 메모리상에 남아있는 경우
+
+* 위의 두가지 오류를 Garbage Collction이 해결함.
 
 
 
