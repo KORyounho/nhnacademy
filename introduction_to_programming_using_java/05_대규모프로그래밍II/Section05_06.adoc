@@ -1,0 +1,42 @@
+= Super, this
+
+=== Variable this
+
+* static 변수는 this로 접근이 불가능
+
+* final과 함께 사용 하는경우가 많음
+
+* 메모리 효율이 목적이 아니라, 공유 목적으로 만들어짐.
+
+=== Variable super
+
+* super는 subclass에서 super클래스의 상태를 추가하거나, 모방용도로 사용
+
+* super는 subclass에서 사용하는 superclass의 메서드
+
+* subclass에 의해서 super클래스의 숨겨진것들에 접근하게위해 사용함
+
+----
+public class GraphicalDice extends PairOfDice {
+
+    public void roll() {
+            // Roll the dice, and redraw them.
+         super.roll();  // Call the roll method from PairOfDice.
+         redraw();      // Call a method to draw the dice.
+    }
+       .
+       .  // More stuff, including definition of redraw().
+       .
+}
+
+----
+
+* PairOfDice의 roll()메서드를 그대로 불러와서 사용
+
+
+* extends를 하더라도, 생성자는 상속받지 않는다. -> subclass에서 생성자를 상속받을 필요가 없기 때문임
+
+
+* 슈퍼클래스의 생성자를 사용하기 위해 super를 사용하기도 함
+
+* 코드의 반복을 줄여주고, 유용함

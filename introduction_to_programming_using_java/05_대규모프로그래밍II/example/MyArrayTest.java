@@ -1,6 +1,19 @@
 public class MyArrayTest {
-    public static void main(String[] args) {
-        int [] arr = new int[10];
-        System.out.println(arr.length);
+    public void main(String[] args) {
+
+        Vehicle mycar = new Car();
+
+        if(mycar instanceof Car){
+
+        }
+    }
+
+    public interface Vehicle{
+
+    }
+
+    public class Car implements Vehicle{
+        public Car() {
+        }
     }
 }

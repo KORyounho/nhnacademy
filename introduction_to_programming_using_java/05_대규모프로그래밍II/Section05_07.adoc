@@ -1,0 +1,57 @@
+= Interface
+
+=== Defining and Implementing Interface
+
+* interface는 메서드 interface의 집합으로 구성되어짐.(실제 구현과는 관련 없음)
+
+* interface를 superclass로 가진 subclass는 필수적으로 정의되어진 메서드들을 재 정의해야 함
+
+> Interface와 Abstract 클래스의 구조적인 차이
+
+* Interface
+----
+public interface MyInterface{
+    public void myExample();
+}
+----
+
+* Abstract class
+----
+public abstract class MyAbstract{
+    public void myExample(){
+        statements;
+    }
+}
+----
+
+----
+public interface ConversionFactors {
+    int INCHES_PER_FOOT = 12;
+    int FEET_PER_YARD = 3;
+    int YARDS_PER_MILE = 1760;
+}
+----
+* 다음과 같이 정의된 상수는, implement된 subclass에서도 사용 가능
+
+* 다른 interface들 끼리, 여러개의 interface를 extends하는것도 가능함.
+
+* 인터페이스를 작성할때는, 의미에 대한 정보들을 표현해야 함.
+
+---
+=== Default Methods
+
+* Default 메서드는, 같은 동작을 하는 부분을 interface에서 정의하는 과정에서 기본적으로 실행하는 코드이다(override시 결국 다 없어지긴 하는데, 정의를 하면 코드의 반복이 되풀이 된다면 당연히 default method를 사용하는게 맞음).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
