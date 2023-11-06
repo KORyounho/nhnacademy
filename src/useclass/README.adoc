@@ -1,0 +1,9 @@
+image:image/image01.png[]
+
+image:image/image02.png[]
+
+* 매개변수가 3개 이상이면 직접 만들면
+
+image:image/image03.png[]
+
+image:image/image04.png[]

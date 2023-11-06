@@ -1,0 +1,7 @@
+= Assertions and Annotations
+
+==== Assertions
+
+* precondition을 확인하기 위해서는 예외를 if를 통해서 정의해도 됨.
+** 하지만 이런방법도 있지 않겠는가? -> 예외 옵션을 추가해서 프로그램을 실행 할 수 있도록
+*그래서

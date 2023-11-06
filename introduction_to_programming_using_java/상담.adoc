@@ -1,3 +1,5 @@
+== 2023.10.28
+
 최종적으론 네트워크 게임이나, 미니 컴파일러
 
 -> 학부수준에서의 연습예제 
@@ -10,11 +12,11 @@ unsyncrosized driven 을 배우기 전엔
  + 문제에 번호 더 첨가하기.
 
  코드 리뷰할때
- 1. 가독성 -> 수정이 가능
+1. 가독성 -> 수정이 가능
 
- 2. 견고성 -> (테스트 코드 작성 방법을 공부해서) 
+2. 견고성 -> (테스트 코드 작성 방법을 공부해서)
 
- 3. 컬렉트니스 -> 되풀이 되는 코드 방지
+3. 컬렉트니스 -> 되풀이 되는 코드 방지
 
 //  ---
 //
@@ -24,3 +26,16 @@ unsyncrosized driven 을 배우기 전엔
 //  -> 이펙트가 미치는 범위( 병행성)
 //  main effect, side effect
 
+== 2023.10.31
+
+* 소프트웨어에어 설계는 최종 목적임.
+-> 처음에 코드를 짜는 방법은 무엇일까, 또는 설계를 잘하려면 어떻게 해야 하려나
+* checked exception, unchecked exception
+* abstraction의 첫번째 - naming
+* 리팩토링 -> abstraction의 개념 중 하나라고 생각해도 괜찮지만, 무조건은 아님
+* procedure abstraction은 학장님이 내주신 코드가 실제 예시
+* 목적을 가진 동작을 간추리고, 입력 출력 에러가 명확하게끔 작성하는게 abstraction
+* procedure abstraction을 종합해서 데이터의 이름을 정의하고, 간추려내는것이 data abstraction
+* abstraction을 계속해서 확장해나가야
+
+* reple
